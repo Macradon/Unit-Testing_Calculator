@@ -131,5 +131,89 @@ namespace Calculator.Test.Unit
         {
             Assert.That(uut.Power(a, b), Is.EqualTo(result));
         }
+
+        [TestCase(5.5, 5.5, 7, 12.5, -7, 5.5)]
+        [TestCase(0, 0, 3, 3, -5, -2)]
+        [TestCase(10, 10, 10, 20, 10, 30)]
+        public void Add_AddOverload(double a, double result_a, double b, double result_b, double c, double result_c)
+        {
+            Assert.That(uut.Add(a), Is.EqualTo(result_a));
+            Assert.That(uut.Add(b), Is.EqualTo(result_b));
+            Assert.That(uut.Add(c), Is.EqualTo(result_c));
+        }
+
+        [TestCase(4.5, -4.5, 7, -11.5, -2, -9.5)]
+        [TestCase(0, 0, -7, 7, 10, -3)]
+        [TestCase(10, -10, 10, -20, 10, -30)]
+        public void Add_SubtractOverload(double a, double result_a, double b, double result_b, double c, double result_c)
+        {
+            Assert.That(uut.Subtract(a), Is.EqualTo(result_a));
+            Assert.That(uut.Subtract(b), Is.EqualTo(result_b));
+            Assert.That(uut.Subtract(c), Is.EqualTo(result_c));
+        }
+
+        [TestCase(3, 0, 6, 0, -11, 0)]
+        public void Add_MultiplyOverload(double a, double result_a, double b, double result_b, double c, double result_c)
+        {
+            Assert.That(uut.Multiply(a), Is.EqualTo(result_a));
+            Assert.That(uut.Multiply(b), Is.EqualTo(result_b));
+            Assert.That(uut.Multiply(c), Is.EqualTo(result_c));
+        }
+
+        [TestCase(3, 0, 6, 0, -11, 0)]
+        public void Add_DivideOverload(double a, double result_a, double b, double result_b, double c, double result_c)
+        {
+            Assert.That(uut.Multiply(a), Is.EqualTo(result_a));
+            Assert.That(uut.Multiply(b), Is.EqualTo(result_b));
+            Assert.That(uut.Multiply(c), Is.EqualTo(result_c));
+        }
+
+        [TestCase(4, 0, 0, 1, 11, 1)]
+        public void Add_PowerOverload(double a, double result_a, double b, double result_b, double c, double result_c)
+        {
+            Assert.That(uut.Power(a), Is.EqualTo(result_a));
+            Assert.That(uut.Power(b), Is.EqualTo(result_b));
+            Assert.That(uut.Power(c), Is.EqualTo(result_c));
+        }
+
+        [TestCase(8, 8, 5, 3, 7, 21)]
+        [TestCase(3, 3, 5, -2, 5, -10)]
+        [TestCase(-5, -5, -8, 3, 3, 9)]
+        public void Add_AddSubMul(double a, double result_a, double b, double result_b, double c, double result_c)
+        {
+            Assert.That(uut.Add(a), Is.EqualTo(result_a));
+            Assert.That(uut.Subtract(b), Is.EqualTo(result_b));
+            Assert.That(uut.Multiply(c), Is.EqualTo(result_c));
+        }
+
+        [TestCase(6, -6, 10, 4, 2, 2)]
+        [TestCase(12, -12, 3, -9, 3, -3)]
+        [TestCase(10, -10, 10, 0, 10, 0)]
+        public void Add_SubAddDib(double a, double result_a, double b, double result_b, double c, double result_c)
+        {
+            Assert.That(uut.Subtract(a), Is.EqualTo(result_a));
+            Assert.That(uut.Add(b), Is.EqualTo(result_b));
+            Assert.That(uut.Divide(c), Is.EqualTo(result_c));
+        }
+
+        [TestCase(6, 6, 0.5, 3, 3, 27)]
+        [TestCase(-1, -1, 10, -10, 2, 100)]
+        [TestCase(0.25, 0.25, 8, 2, 6, 64)]
+        public void Add_AddMulPow(double a, double result_a, double b, double result_b, double c, double result_c)
+        {
+            Assert.That(uut.Add(a), Is.EqualTo(result_a));
+            Assert.That(uut.Multiply(b), Is.EqualTo(result_b));
+            Assert.That(uut.Power(c), Is.EqualTo(result_c));
+        }
+
+        [TestCase(9, 9, 5, -5)]
+        [TestCase(-7, -7, 0, 0)]
+        [TestCase(3, 3, -3, 3)]
+        public void Add_AddClrSub(double a, double result_a, double b, double result_b)
+        {
+            Assert.That(uut.Add(a), Is.EqualTo(result_a));
+            uut.Clear();
+            Assert.That(uut.Subtract(b), Is.EqualTo(result_b));
+        }
     }
 }

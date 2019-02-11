@@ -49,7 +49,7 @@ namespace Calculator
             return value;
         }
 
-
+        private double result = 0;
 
         public double Add(double addend)
         {
@@ -59,13 +59,13 @@ namespace Calculator
 
         public double Subtract(double subtractor)
         {
-            result = Accumulator + subtractor;
+            result = Accumulator - subtractor;
             return result;
         }
 
         public double Multiply(double multiplier)
         {
-            result = Accumulator + multiplier;
+            result = Accumulator * multiplier;
             return result;
         }
 
@@ -77,29 +77,26 @@ namespace Calculator
             }
             else
             {
-                result = Accumulator + divisor;
+                result = Accumulator / divisor;
                 return result;
             }
         }
 
         public double Power(double exponent)
         {
-            for (int i = 0; i < exponent - 1; i++)
+            double value = 1;
+            for (int i = 0; i < exponent; i++)
             {
-                result = result * result;
+                value = value * result;
             }
-            result = Accumulator + exponent;
+            result = value;
             return result;
         }
-
-
 
         public void Clear()
         {
             result = 0;
         }
-
-        private double result = 0;
 
         public double Accumulator
         {
