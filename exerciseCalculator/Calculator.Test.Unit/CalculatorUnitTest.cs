@@ -228,8 +228,8 @@ namespace Calculator.Test.Unit
             Assert.That(uut.Power(e), Is.EqualTo(result_e));
         }
 
-        [TestCase(2, 2, 3)]
-        public void Add_AddOneNumber(double a, double b, double result)
+        [TestCase(2, 2, 4)]
+        public void Add_TwoPlusTwo(double a, double b, double result)
         {
             Assert.That(uut.Add(a, b), Is.EqualTo(result));
         }
