@@ -215,5 +215,17 @@ namespace Calculator.Test.Unit
             uut.Clear();
             Assert.That(uut.Subtract(b), Is.EqualTo(result_b));
         }
+
+        [TestCase(9, 9, 5, 4, 3, 12, 4, 3, 2, 9)]
+        [TestCase(-2, -2, -12, 10, 10, 100, 2, 50, 2, 2500)]
+        [TestCase(0, 0, 0, 0, 0, 0, 0, 0, 0, 1)]
+        public void Add_AddSubMulDivPow(double a, double result_a, double b, double result_b, double c, double result_c, double d, double result_d, double e, double result_e)
+        {
+            Assert.That(uut.Add(a), Is.EqualTo(result_a));
+            Assert.That(uut.Subtract(b), Is.EqualTo(result_b));
+            Assert.That(uut.Multiply(c), Is.EqualTo(result_c));
+            Assert.That(uut.Divide(d), Is.EqualTo(result_d));
+            Assert.That(uut.Power(e), Is.EqualTo(result_e));
+        }
     }
 }
