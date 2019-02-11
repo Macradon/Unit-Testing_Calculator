@@ -30,7 +30,12 @@ namespace Calculator
 
         public double Divide(double a, double b)
         {
-            return a / b;
+            if(b == 0)
+            {
+                return 0;
+            }
+            else
+                return a / b;
         }
 
         public double Power(double x, double exp)
@@ -66,8 +71,15 @@ namespace Calculator
 
         public double Divide(double divisor)
         {
-            result = Accumulator + divisor;
-            return result;
+            if (divisor == 0)
+            {
+                return result;
+            }
+            else
+            {
+                result = Accumulator + divisor;
+                return result;
+            }
         }
 
         public double Power(double exponent)
