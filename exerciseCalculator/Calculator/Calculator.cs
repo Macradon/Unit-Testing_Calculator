@@ -40,13 +40,8 @@ namespace Calculator
 
         public double Power(double x, double exp)
         {
-            double value = 1;
-            for (int i = 0; i < exp; i++)
-            {
-                value = value * x;
-            }
-
-            return value;
+            result = Math.Pow(x, exp);
+            return result;
         }
 
         private double result = 0;
@@ -84,12 +79,7 @@ namespace Calculator
 
         public double Power(double exponent)
         {
-            double value = 1;
-            for (int i = 0; i < exponent; i++)
-            {
-                value = value * result;
-            }
-            result = value;
+            result = Math.Pow(Accumulator, exponent);
             return result;
         }
 
